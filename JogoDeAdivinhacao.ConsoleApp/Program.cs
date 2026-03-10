@@ -8,12 +8,16 @@
 
 // v2
 // 1. Nosso jogo deve implementar a funcionalidade de Dificuldade e Tentativas limitadas
+// 2. Nosso jogo deve umplementar uma funcionalidade de Validação de Números Repetidos
 
 using System; // biblioteca padrão do sistema com classes genéricas
 using System.Security.Cryptography; // biblioteca padrão do sistema relacionada a criptografia
 
 while (true == true)
 {
+    int[] numerosDigitados = new int[100];
+    int contadorNumerosDigitados = 0;
+
     Console.Clear();
 
     Console.WriteLine("------------------------------------");
@@ -70,6 +74,37 @@ while (true == true)
         string? chute = Console.ReadLine();
 
         int numeroDigitado = Convert.ToInt32(chute);
+
+        bool numeroEstaRepetido = false;
+
+        for (int contadorNumeros = 0; contadorNumeros < numerosDigitados.Length; contadorNumeros++)
+        {
+            if (numerosDigitados[contadorNumeros] == numeroDigitado)
+            {
+                numeroEstaRepetido = true;
+                break;
+            }
+        }
+
+        if (numeroEstaRepetido == true)
+        {
+            Console.WriteLine("------------------------------------");
+            Console.WriteLine("Você já digitou esse número, tente novamente.");
+            Console.WriteLine("------------------------------------");
+            Console.Write("Digite ENTER para continuar...");
+            Console.ReadLine();
+
+            tentativa--;
+
+            continue;
+        }
+
+        if (contadorNumerosDigitados < numerosDigitados.Length)
+        {
+            numerosDigitados[contadorNumerosDigitados] = numeroDigitado;
+
+            contadorNumerosDigitados++;
+        }
 
         if (numeroDigitado == numeroAleatorio)
         {
