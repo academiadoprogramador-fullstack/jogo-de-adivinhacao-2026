@@ -1,12 +1,13 @@
 ﻿// Objetivos / Passo-a-passo
+
+// v1
 // 1. Nosso jogo deve aceitar o input do jogador e exibir o valor digitado
 // 2. Nosso jogo deve gerar um número aleatório
 // 3. Nosso jogo deve validar a tentativa do jogador e exibir uma mensagem
+// 4. Nosso jogo deve permitir múltiplas tentativas
 
-using System;
-
-// Eu quero usar a biblioteca padrão do sistema relacionada a criptografia
-using System.Security.Cryptography;
+using System; // biblioteca padrão do sistema com classes genéricas
+using System.Security.Cryptography; // biblioteca padrão do sistema relacionada a criptografia
 
 while (true == true)
 {
@@ -45,7 +46,7 @@ while (true == true)
     Console.Write("Deseja continuar? (s/N): ");
     string? opcaoContinuar = Console.ReadLine();
 
-    if (opcaoContinuar.ToUpper() != "S")
+    if (opcaoContinuar?.ToUpper() != "S")
     {
         break;
     }
