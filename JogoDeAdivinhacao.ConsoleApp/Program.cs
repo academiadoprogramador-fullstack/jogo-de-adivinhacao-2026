@@ -79,9 +79,9 @@ while (true == true)
 
         bool numeroEstaRepetido = false;
 
-        for (int contadorNumeros = 0; contadorNumeros < numerosDigitados.Length; contadorNumeros++)
+        for (int indiceChecado = 0; indiceChecado < numerosDigitados.Length; indiceChecado++)
         {
-            if (numerosDigitados[contadorNumeros] == numeroDigitado)
+            if (numerosDigitados[indiceChecado] == numeroDigitado)
             {
                 numeroEstaRepetido = true;
                 break;
